@@ -6,7 +6,7 @@ let arr = [1, 2, 3, 4];
 
 function printSum(array) {
     let sum = 0;
-    for (i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         sum += array[i];
     }
     return sum;
@@ -31,27 +31,17 @@ let alice = [60, 0, 80];
 let bob = [50, 20, 100];
 
 function compareFunc(a, b) {
-    let totalPoints = [];
     let aPoints = 0;
     let bPoints = 0;
-    if (a[0] > b[0]) {
-        aPoints++;
-    } else if (a[0] < b[0]) {
-        bPoints++;
+    for (let i = 0; i < alice.length; i++) {
+        if (a[i] > b[i]) {
+            aPoints++;
+        } else if (a[i] < b[i]) {
+            bPoints++;
+        }
     }
-    if (a[1] > b[1]) {
-        aPoints++;
-    } else if (a[1] < b[1]) {
-        bPoints++;
-    }
-    if (a[2] > b[2]) {
-        aPoints++;
-    } else if (a[2] < b[2]) {
-        bPoints++;
-    }
-    totalPoints.push(aPoints)
-    totalPoints.push(bPoints);
-    return totalPoints;
+
+    return [aPoints, bPoints];
 }
 
 compareFunc(alice, bob);
